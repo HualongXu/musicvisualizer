@@ -4,7 +4,7 @@
 \alias{musicvisualizer}
 \title{Retrieve metadata relevant to the albums of an artist}
 \usage{
-musicvisualizer(album_name, artist_name)
+musicvisualizer(artist_n, album_n)
 }
 \arguments{
 \item{album_name}{A string character vector identifying an existing album}
@@ -23,7 +23,6 @@ A data frame of class \code{musicvisualizer} with the following fields
 \item instrumentalness
 \item acousticness
 \item track_name
-\item album_name
 }
 
 Note
