@@ -17,7 +17,6 @@
 #' * instrumentalness
 #' * acousticness
 #' * track_name
-#' * album_name
 #'
 #' Note
 #'
@@ -27,9 +26,8 @@
 #' @importFrom dplyr select
 #'
 #' @export
-musicvisualizer <- function(album_name, artist_name) {
+musicvisualizer <- function(artist_n, album_n) {
 
-  #I am not sure if this trunk of code is supposed to be here in this R file -
   id <- 'd0f427dc24ea4235a017135aaa1cd5ba'
   secret <- '4866b1333932467cb761e1abd0d669bf'
   Sys.setenv(SPOTIFY_CLIENT_ID = id)
@@ -37,10 +35,11 @@ musicvisualizer <- function(album_name, artist_name) {
   access_token <- spotifyr::get_spotify_access_token()
 
 
-  x <- spotifyr::get_artist_audio_features(artist_name) |>
-    dplyr::filter(album_name == album_name) |>
-    dplyr::select(artist_name, album_images, album_release_date, danceability, energy, valence,
-                  instrumentalness, acousticness, track_name, album_name)
+  x <- spotifyr::get_artist_audio_features(artist_n)
+
+  x <- x %>%
+    dplyr::filter(album_name == album_n) %>%
+    dplyr::select(track_name, danceability, energy, valence, instrumentalness, acousticness)
   x <- new_music_visualizer(x)
   x <- validate_music_visualizer(x)
   x
@@ -58,8 +57,8 @@ new_music_visualizer <- function(x) {
 
 validate_music_visualizer <- function(x) {
 
-  required_fields <- c("artist_name", "album_images", "album_release_date", "danceability", "energy",
-                       "valence", "instrumentalness", "acousticness", "track_name", "album_name")
+  required_fields <- c("track_name", "danceability", "energy",
+                       "valence", "instrumentalness", "acousticness")
 
   if (!all(required_fields %in% names(x))) {
     difference <- setdiff(required_fields, names(x))
@@ -67,16 +66,8 @@ validate_music_visualizer <- function(x) {
          paste(difference, collapse = ", "))
   }
 
-  char_fields <- c("artist_name", "album_release_date", "track_name", "album_name")
-
-  for (f in char_fields) {
-    if (!(is.character(x[[f]]) && length(x[[f]] == 1))) {
-      stop("The ", f, "field in a music visualizer object must be a character vector of length 1")
-    }
-  }
-
-  if (!is.list(x[["album_images"]])) {
-    stop("The album_images field in a music visualizer object must be a list")
+  if (!(is.character(x[["track_name"]]) && length(x[["track_name"]] == 1))) {
+    stop("The ", f, "field in a music visualizer object must be a character vector of length 1")
   }
 
   double_fields <- c("danceability", "energy", "valence", "instrumentalness", "acousticness")
@@ -107,7 +98,6 @@ plot.musicvisualizer <- function(x, ...) {
   new_data <- data.frame(danceability = x$danceability,
                          energy = x$energy,
                          valence = x$valence,
-                         instrumentalness = x$instrumentalness,
                          acousticness = x$acousticness,
                          track_name = x$track_name)
 
