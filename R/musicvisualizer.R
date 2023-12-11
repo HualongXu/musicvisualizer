@@ -85,7 +85,15 @@ validate_music_visualizer <- function(x) {
 
 plot.musicvisualizer <- function(x, ...) {
 
-  ggplot(data = x,
-         aes(x=, y=))
+  tracks_features <- x %>%
+    pivot_longer(cols = c(danceability, energy, valence, acousticness),
+                 names_to = "Features", values_to = "Value of Features")
+
+  ggplot(tracks_features, aes(x = track_name, y = `Value of Features`, color = Features)) +
+    geom_point(size = 2) +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 25, hjust = 1)) +
+    labs(title = "Music Features of Tracks in Album", x = "Track Names", y = "Value of Features")
 
 }
+
