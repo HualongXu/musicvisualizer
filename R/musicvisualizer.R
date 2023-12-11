@@ -7,7 +7,7 @@
 #' @param album_name A string character vector identifying an existing album
 #' @param artist_name A string character vector identifying an existing singer that possesses the album
 #'
-#' @return A list of class `musicvisualizer` with the following fields
+#' @return A data frame of class `musicvisualizer` with the following fields
 #' * artist_name
 #' * album_images
 #' * album_release_date
@@ -49,7 +49,7 @@ musicvisualizer <- function(album_name, artist_name) {
 
 new_music_visualizer <- function(x) {
 
-  stopifnot(is.list(x))
+  stopifnot(is.data.frame(x))
 
   structure(x,
             class = "musicvisualizer")
@@ -99,20 +99,27 @@ validate_music_visualizer <- function(x) {
 #' @param ... Currently ignored
 #'
 #' @importFrom tidyr pivot_longer
-#' @importFrom ggplot2 ggplot
+#' @importFrom ggplot2 ggplot aes geom_point theme_minimal theme element_text labs
 #'
 #' @exportS3Method
 plot.musicvisualizer <- function(x, ...) {
 
-  tracks_features <- x %>%
+  new_data <- data.frame(danceability = x$danceability,
+                         energy = x$energy,
+                         valence = x$valence,
+                         instrumentalness = x$instrumentalness,
+                         acousticness = x$acousticness,
+                         track_name = x$track_name)
+
+  tracks_features <- new_data %>%
     tidyr::pivot_longer(cols = c(danceability, energy, valence, acousticness),
                         names_to = "Features", values_to = "Value of Features")
 
-  ggplot2::ggplot(tracks_features, aes(x = track_name, y = `Value of Features`, color = Features)) +
-    geom_point(size = 2) +
-    theme_minimal() +
-    theme(axis.text.x = element_text(angle = 25, hjust = 1)) +
-    labs(title = "Music Features of Tracks in Album", x = "Track Names", y = "Value of Features")
+  ggplot2::ggplot(tracks_features, ggplot2::aes(x = track_name, y = `Value of Features`, color = Features)) +
+    ggplot2::geom_point(size = 2) +
+    ggplot2::theme_minimal() +
+    ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 25, hjust = 1)) +
+    ggplot2::labs(title = "Music Features of Tracks in Album", x = "Track Names", y = "Value of Features")
 
 }
 
