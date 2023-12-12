@@ -90,6 +90,7 @@ validate_music_visualizer <- function(x) {
 #' @param ... Currently ignored
 #'
 #' @importFrom tidyr pivot_longer
+#' @importFrom dplyr `%>%`
 #' @importFrom ggplot2 ggplot aes geom_point theme_minimal theme element_text labs
 #'
 #' @exportS3Method
