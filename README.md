@@ -6,7 +6,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of musicvisualizer is to …
+The `musicvisualizer` package retrieves and filters data that contains
+[an album’s features](https://spotify.com) from Spotify. It displays all
+these features in one plot.
 
 ## Installation
 
@@ -18,35 +20,54 @@ You can install the development version of musicvisualizer from
 devtools::install_github("HualongXu/musicvisualizer")
 ```
 
-## Example
+## Visualize Album’s Features
 
-This is a basic example which shows you how to solve a common problem:
+Given an artist’s name and ONE of their album’s name, the
+`musicvisualizer()` function retrieves a raw data that is later filtered
+down to a few features (danceability, valence, …) for the album.
 
 ``` r
 library(musicvisualizer)
-## basic example code
+##basic example code
+
+first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+first_musicvisualizer
+#> $track_name
+#>  [1] "all-american bitch"            "bad idea right?"              
+#>  [3] "vampire"                       "lacy"                         
+#>  [5] "ballad of a homeschooled girl" "making the bed"               
+#>  [7] "logical"                       "get him back!"                
+#>  [9] "love is embarrassing"          "the grudge"                   
+#> [11] "pretty isn’t pretty"           "teenage dream"                
+#> 
+#> $danceability
+#>  [1] 0.430 0.627 0.511 0.455 0.385 0.537 0.499 0.546 0.520 0.548 0.554 0.422
+#> 
+#> $energy
+#>  [1] 0.692 0.879 0.532 0.379 0.873 0.413 0.246 0.846 0.831 0.307 0.854 0.229
+#> 
+#> $valence
+#>  [1] 0.401 0.748 0.350 0.413 0.469 0.226 0.153 0.740 0.677 0.317 0.594 0.104
+#> 
+#> $instrumentalness
+#>  [1] 4.17e-06 6.87e-06 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+#>  [9] 0.00e+00 0.00e+00 1.78e-06 0.00e+00
+#> 
+#> $acousticness
+#>  [1] 0.25400 0.00193 0.17700 0.80300 0.05570 0.34600 0.85300 0.01350 0.00261
+#> [10] 0.91600 0.00394 0.81600
+#> 
+#> attr(,"class")
+#> [1] "musicvisualizer"
+#> attr(,"row.names")
+#>  [1]  1  2  3  4  5  6  7  8  9 10 11 12
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+We can plot them in one visualization to see the album’s tendency in
+danceability, ….
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+plot(first_musicvisualizer)
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
