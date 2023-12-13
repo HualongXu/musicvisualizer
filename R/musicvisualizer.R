@@ -82,9 +82,13 @@ validate_music_visualizer <- function(x) {
 
 }
 
+#' @title
 #' Visualize the relevant features - danceability, energy, valence, instrumentalness, and acousticness
 #'
-#' Description HERE!!! My brain is not FUNCTIONING at the moment!!! We will come back in one day!!!
+#' @description
+#' Given a [`musicvisualizer`] object, this [`base::plot`] method retrieves the dataset of features and
+#' filters it to four features: danceability, energy, valence, and acousticness.
+#' It then displays them in one single plot for a clearer overview.
 #'
 #' @param x An ['musicvisualizer'] object
 #' @param ... Currently ignored

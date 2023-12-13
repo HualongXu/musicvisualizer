@@ -12,5 +12,7 @@
 \item{...}{Currently ignored}
 }
 \description{
-Description HERE!!! My brain is not FUNCTIONING at the moment!!! We will come back in one day!!!
+Given a \code{\link{musicvisualizer}} object, this \code{\link[base:plot]{base::plot}} method retrieves the dataset of features and
+filters it to four features: danceability, energy, valence, and acousticness.
+It then displays them in one single plot for a clearer overview.
 }
