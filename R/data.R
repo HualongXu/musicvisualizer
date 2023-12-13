@@ -10,10 +10,10 @@
 #'    \item{album_release_date}{Date in form of year-month-day that album got released}
 #'    \item{album_release_year}{Year that album got released}
 #'    \item{album_release_date_precision}{How precise is the provided release date? To day? To month? To year?}
-#'    \item{danceability}{}
-#'    \item{energy}{}
-#'    \item{key}{}
-#'    \item{loudness}{}
+#'    \item{danceability}{How suitable is the music for dancing along?}
+#'    \item{energy}{How intense (fast, loud) is the music?}
+#'    \item{key}{a number that represents the key the music uses}
+#'    \item{loudness}{How loud is the music?}
 #'    \item{mode}{}
 #'    \item{speechiness}{}
 #'    \item{acousticness}{}
@@ -42,4 +42,6 @@
 #'    \item{mode_name}{}
 #'    \item{key_mode}{}
 #' }
+#'
+#' @source <https://developer.spotify.com/documentation/web-api>
 "musicvisualizer_data"
