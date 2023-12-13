@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of musicvisualizer is to ...
+The `musicvisualizer` package retrieves and filters data that contains [an album's features](https://spotify.com) from Spotify. It displays all these features in one plot.
 
 ## Installation
 
@@ -29,27 +29,21 @@ You can install the development version of musicvisualizer from [GitHub](https:/
 devtools::install_github("HualongXu/musicvisualizer")
 ```
 
-## Example
+## Visualize Album's Features
 
-This is a basic example which shows you how to solve a common problem:
+Given an artist's name and ONE of their album's name, the `musicvisualizer()` function retrieves a raw data that is later filtered down to a few features (danceability, valence, ...) for the album.
 
 ```{r example}
 library(musicvisualizer)
-## basic example code
+##basic example code
+
+first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+first_musicvisualizer
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+We can plot them in one visualization to see the album's tendency in danceability, ....
 
-```{r cars}
-summary(cars)
+```{r}
+plot(first_musicvisualizer)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
