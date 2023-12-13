@@ -17,3 +17,54 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(musicvisualizer)
 ```
+
+# musicvisualizer
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The `musicvisualizer` package retrieves and filters data that contains [an album's features](https://spotify.com) from Spotify. It displays all these features in one plot.
+
+## Visualize Album's Features
+
+Given an artist's name and ONE of their album's name, the `musicvisualizer()` function retrieves a raw data that is later filtered down to a few features (danceability, valence, ...) for the album.
+
+```{r example}
+library(musicvisualizer)
+##basic example code
+
+first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+first_musicvisualizer
+```
+
+We can plot them in one visualization to see the album's tendency in danceability, ....
+
+```{r}
+plot(first_musicvisualizer)
+```
+
+## Features Data
+The metadata is aggregated into `musicvisualizer_data`
+
+``` {r}
+head(musicvisualizer_data)
+```
+
+**How many songs are in each of the artist's albums?**
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+``` {r}
+musicvisualizer_songs_count <- musicvisualizer_data |>
+  group_by(album_name) |>
+  summarize(songs_count = n())
+```
+
+``` {r}
+ggplot(data = musicvisualizer_songs_count,
+       aes(x = album_name, y = songs_count)) +
+  geom_col()
+```
