@@ -19,28 +19,28 @@
 #'    \item{acousticness}{A confidence measure from 0.0 to 1.0 of whether the track is acoustic.}
 #'    \item{instrumentalness}{A measure that predicts whether a track contains no vocals.}
 #'    \item{liveness}{A measure that detects the presence of an audience in the audio recording.}
-#'    \item{valence}{}
-#'    \item{tempo}{}
-#'    \item{track_id}{}
-#'    \item{analysis_url}{}
-#'    \item{time_signature}{}
-#'    \item{artists}{}
-#'    \item{available_markets}{}
-#'    \item{disc_number}{}
-#'    \item{duration_ms}{}
-#'    \item{explicit}{}
-#'    \item{track_href}{}
-#'    \item{is_local}{}
-#'    \item{track_name}{}
-#'    \item{track_preview_url}{}
-#'    \item{track_number}{}
-#'    \item{type}{}
-#'    \item{track_uri}{}
-#'    \item{external_urls.spotify}{}
-#'    \item{album_name}{}
-#'    \item{key_name}{}
-#'    \item{mode_name}{}
-#'    \item{key_mode}{}
+#'    \item{valence}{A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.}
+#'    \item{tempo}{The overall estimated tempo(the speed or pace of a given piece and derives directly from the average beat duration) of a track in beats per minute (BPM).}
+#'    \item{track_id}{The Spotify ID for the track.}
+#'    \item{analysis_url}{A URL to access the full audio analysis of this track. An access token is required to access this data.}
+#'    \item{time_signature}{An estimated time signature, a notational convention to specify how many beats are in each bar (or measure).}
+#'    \item{artists}{The artists who performed the track.}
+#'    \item{available_markets}{A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code.}
+#'    \item{disc_number}{The disc number (usually 1 unless the album consists of more than one disc).}
+#'    \item{duration_ms}{The track length in milliseconds.}
+#'    \item{explicit}{Whether or not the track has explicit lyrics (true = yes it does; false = no it does not OR unknown).}
+#'    \item{track_href}{A link to the Web API endpoint providing full details of the track.}
+#'    \item{is_local}{Whether or not the track is from a local file.}
+#'    \item{track_name}{The name of the track.}
+#'    \item{track_preview_url}{A link to a 30 second preview (MP3 format) of the track.}
+#'    \item{track_number}{The number of the track. If an album has several discs, the track number is the number on the specified disc.}
+#'    \item{type}{The object type: "track".}
+#'    \item{track_uri}{The Spotify URI for the track.}
+#'    \item{external_urls.spotify}{Known external URLs for this track.}
+#'    \item{album_name}{The name of the album. In case of an album takedown, the value may be an empty string.}
+#'    \item{key_name}{The name of the key.}
+#'    \item{mode_name}{The name of the mode.}
+#'    \item{key_mode}{The key and the mode.}
 #' }
 #'
 #' @source <https://developer.spotify.com/documentation/web-api>
