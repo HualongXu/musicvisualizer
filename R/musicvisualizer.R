@@ -34,12 +34,21 @@ musicvisualizer <- function(artist_n, album_n) {
   Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
   access_token <- spotifyr::get_spotify_access_token()
 
-
-  x <- spotifyr::get_artist_audio_features(artist_n)
+  x <- tryCatch({
+    spotifyr::get_artist_audio_features(artist_n)
+  }, error = function(e) {
+    stop(e$message)
+  })
 
   x <- x %>%
     dplyr::filter(album_name == album_n) %>%
-    dplyr::select(track_name, danceability, energy, valence, instrumentalness, acousticness)
+    dplyr::select(track_name, danceability, energy, valence, acousticness)
+
+  if (nrow(x) == 0) {
+    message("Can't find the album: ", album_n, ". Please check your spelling or try again with the album name in capital letters, such as '", toupper(album_n), "'")
+    return(NULL)
+  }
+
   x <- new_music_visualizer(x)
   x <- validate_music_visualizer(x)
   x
@@ -83,7 +92,7 @@ validate_music_visualizer <- function(x) {
 }
 
 #' @title
-#' Visualize the relevant features - danceability, energy, valence, instrumentalness, and acousticness
+#' Visualize the relevant features - danceability, energy, valence, and acousticness
 #'
 #' @description
 #' Given a [`musicvisualizer`] object, this [`base::plot`] method retrieves the dataset of features and
