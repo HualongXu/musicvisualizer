@@ -18,6 +18,12 @@ first_musicvisualizer
 plot(first_musicvisualizer)
 
 ## -----------------------------------------------------------------------------
+midnights_musicvisualizer <- musicvisualizer("Taylor Swift", "Midnights")
+midnights_musicvisualizer
+
+plot(midnights_musicvisualizer)
+
+## -----------------------------------------------------------------------------
 head(musicvisualizer_data)
 
 ## -----------------------------------------------------------------------------

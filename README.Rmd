@@ -31,7 +31,7 @@ devtools::install_github("HualongXu/musicvisualizer")
 
 ## Visualize Album's Features
 
-Given an artist's name and ONE of their album's name, the `musicvisualizer()` function retrieves a raw data that is later filtered down to a few features (danceability, valence, ...) for the album.
+Given an artist's name and ONE of their album's name, the `musicvisualizer()` function retrieves a raw data that is later filtered down to five features (energy, danceability, valence, instrumentalness, acousticness) for the album.
 
 ```{r example}
 library(musicvisualizer)
@@ -41,7 +41,7 @@ first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
 first_musicvisualizer
 ```
 
-We can plot them in one visualization to see the album's tendency in danceability, ....
+We can plot them in one visualization to see the album's tendency in energy, danceability, valence, and acousticness.
 
 ```{r}
 plot(first_musicvisualizer)
