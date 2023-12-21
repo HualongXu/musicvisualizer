@@ -2,7 +2,7 @@
 % Please edit documentation in R/musicvisualizer.R
 \name{plot.musicvisualizer}
 \alias{plot.musicvisualizer}
-\title{Visualize the relevant features - danceability, energy, valence, instrumentalness, and acousticness}
+\title{Visualize the relevant features - danceability, energy, valence, and acousticness}
 \usage{
 \method{plot}{musicvisualizer}(x, ...)
 }
@@ -15,4 +15,9 @@
 Given a \code{\link{musicvisualizer}} object, this \code{\link[base:plot]{base::plot}} method retrieves the dataset of features and
 filters it to four features: danceability, energy, valence, and acousticness.
 It then displays them in one single plot for a clearer overview.
+}
+\examples{
+first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+first_plot <- plot(first_musicvisualizer)
+
 }

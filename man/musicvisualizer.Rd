@@ -14,15 +14,12 @@ musicvisualizer(artist_n, album_n)
 \value{
 A data frame of class \code{musicvisualizer} with the following fields
 \itemize{
-\item artist_name
-\item album_images
-\item album_release_date
+\item track_name
 \item danceability
 \item energy
 \item valence
 \item instrumentalness
 \item acousticness
-\item track_name
 }
 
 Note
@@ -30,4 +27,8 @@ Note
 \description{
 Given an artist's name, this function retrieves a dataset from Spotify that
 includes relevant albums' information such as danceability, energy, valence, etc.
+}
+\examples{
+first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+
 }
