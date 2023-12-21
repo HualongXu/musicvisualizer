@@ -42,7 +42,7 @@ musicvisualizer <- function(artist_n, album_n) {
 
   x <- x %>%
     dplyr::filter(album_name == album_n) %>%
-    dplyr::select(track_name, danceability, energy, valence, acousticness)
+    dplyr::select(track_name, danceability, energy, valence, instrumentalness, acousticness)
 
   if (nrow(x) == 0) {
     message("Can't find the album: ", album_n, ". Please check your spelling or try again with the album name in capital letters, such as '", toupper(album_n), "'")
