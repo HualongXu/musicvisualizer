@@ -56,7 +56,7 @@ new_music_visualizer <- function(x) {
   stopifnot(is.data.frame(x))
 
   structure(x,
-            class = "musicvisualizer")
+            class = c("musicvisualizer", "data.frame"))
 
 }
 
