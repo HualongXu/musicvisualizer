@@ -19,8 +19,7 @@
 #'
 #' @importFrom spotifyr get_spotify_access_token
 #' @importFrom spotifyr get_artist_audio_features
-#' @importFrom dplyr filter
-#' @importFrom dplyr select
+#' @importFrom dplyr filter select
 #'
 #' @export
 musicvisualizer <- function(artist_n, album_n) {
