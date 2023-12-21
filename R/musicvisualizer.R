@@ -8,15 +8,12 @@
 #' @param artist_name A string character vector identifying an existing singer that possesses the album
 #'
 #' @return A data frame of class `musicvisualizer` with the following fields
-#' * artist_name
-#' * album_images
-#' * album_release_date
+#' * track_name
 #' * danceability
 #' * energy
 #' * valence
 #' * instrumentalness
 #' * acousticness
-#' * track_name
 #'
 #' Note
 #'
