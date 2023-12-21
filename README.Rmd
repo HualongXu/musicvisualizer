@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # musicvisualizer
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/HualongXu/musicvisualizer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/HualongXu/musicvisualizer/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The `musicvisualizer` package retrieves and filters data that contains [an album's features](https://spotify.com) from Spotify. It displays all these features in one plot.
