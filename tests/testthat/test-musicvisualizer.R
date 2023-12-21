@@ -3,11 +3,11 @@ test_that("musicvisualizer objects have elements", {
 })
 
 test_that("musicvisualzier objects are data frames", {
-  expect_true(is.list(musicvisualizer('Olivia Rodrigo', 'GUTS')))
+  expect_true(is.data.frame(musicvisualizer('Olivia Rodrigo', 'GUTS')))
 })
 
 test_that("musicvisualizer objects have class musicvisualizer", {
-  expect_equal(class(musicvisualizer('Olivia Rodrigo', 'GUTS')), "musicvisualizer")
+  expect_equal(class(musicvisualizer('Olivia Rodrigo', 'GUTS')), c("musicvisualizer","data.frame"))
 })
 
 library(vdiffr)
