@@ -1,6 +1,6 @@
-#' Metadata for all xkcd comics (thus far)
+#' Metadata for all artists’ audio features and other information in Spotify (thus far)
 #'
-#' @format  A data frame/list???? with 40 rows and 39 columns
+#' @format  A data frame with 40 rows and 39 columns
 #' \describe{
 #'    \item{artist_name}{Artist name}
 #'    \item{artist_id}{Artist Spotify ID}
@@ -34,7 +34,7 @@
 #'    \item{track_name}{The name of the track.}
 #'    \item{track_preview_url}{A link to a 30 second preview (MP3 format) of the track.}
 #'    \item{track_number}{The number of the track. If an album has several discs, the track number is the number on the specified disc.}
-#'    \item{type}{The object type: "track".}
+#'    \item{type}{The object type: "track"}
 #'    \item{track_uri}{The Spotify URI for the track.}
 #'    \item{external_urls.spotify}{Known external URLs for this track.}
 #'    \item{album_name}{The name of the album. In case of an album takedown, the value may be an empty string.}
