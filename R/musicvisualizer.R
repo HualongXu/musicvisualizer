@@ -20,6 +20,9 @@
 #'
 #' Note
 #'
+#' @example
+#' first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+#'
 #' @importFrom spotifyr get_spotify_access_token
 #' @importFrom spotifyr get_artist_audio_features
 #' @importFrom dplyr filter
@@ -101,6 +104,10 @@ validate_music_visualizer <- function(x) {
 #'
 #' @param x An ['musicvisualizer'] object
 #' @param ... Currently ignored
+#'
+#' @example
+#' first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+#' first_plot <- plot(first_musicvisualizer)
 #'
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr `%>%`
