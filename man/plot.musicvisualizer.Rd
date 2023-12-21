@@ -7,7 +7,7 @@
 \method{plot}{musicvisualizer}(x, ...)
 }
 \arguments{
-\item{x}{An \link{'musicvisualizer'} object}
+\item{x}{An \code{\link{musicvisualizer}} object}
 
 \item{...}{Currently ignored}
 }

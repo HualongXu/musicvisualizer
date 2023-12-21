@@ -4,8 +4,8 @@
 #' Given an artist's name, this function retrieves a dataset from Spotify that
 #' includes relevant albums' information such as danceability, energy, valence, etc.
 #'
-#' @param album_name A string character vector identifying an existing album
-#' @param artist_name A string character vector identifying an existing singer that possesses the album
+#' @param artist_n A string character vector identifying an existing singer that possesses the album
+#' @param album_n A string character vector identifying an existing album
 #'
 #' @return A data frame of class `musicvisualizer` with the following fields
 #' * track_name
@@ -98,7 +98,7 @@ validate_music_visualizer <- function(x) {
 #' filters it to four features: danceability, energy, valence, and acousticness.
 #' It then displays them in one single plot for a clearer overview.
 #'
-#' @param x An ['musicvisualizer'] object
+#' @param x An [`musicvisualizer`] object
 #' @param ... Currently ignored
 #'
 #' @examples

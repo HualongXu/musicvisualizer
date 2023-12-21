@@ -7,9 +7,9 @@
 musicvisualizer(artist_n, album_n)
 }
 \arguments{
-\item{album_name}{A string character vector identifying an existing album}
+\item{artist_n}{A string character vector identifying an existing singer that possesses the album}
 
-\item{artist_name}{A string character vector identifying an existing singer that possesses the album}
+\item{album_n}{A string character vector identifying an existing album}
 }
 \value{
 A data frame of class \code{musicvisualizer} with the following fields
