@@ -17,6 +17,9 @@
 #'
 #' Note
 #'
+#' @examples
+#' first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+#'
 #' @importFrom spotifyr get_spotify_access_token
 #' @importFrom spotifyr get_artist_audio_features
 #' @importFrom dplyr filter select
@@ -98,6 +101,10 @@ validate_music_visualizer <- function(x) {
 #' @param x An ['musicvisualizer'] object
 #' @param ... Currently ignored
 #'
+#' @examples
+#' first_musicvisualizer <- musicvisualizer("Olivia Rodrigo", "GUTS")
+#' first_plot <- plot(first_musicvisualizer)
+#'
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr `%>%`
 #' @importFrom ggplot2 ggplot aes geom_point theme_minimal theme element_text labs
@@ -105,13 +112,10 @@ validate_music_visualizer <- function(x) {
 #' @exportS3Method
 plot.musicvisualizer <- function(x, ...) {
 
-  new_data <- data.frame(danceability = x$danceability,
-                         energy = x$energy,
-                         valence = x$valence,
-                         acousticness = x$acousticness,
-                         track_name = x$track_name)
+  x <- x%>%
+    dplyr::select(track_name, danceability, energy, valence, acousticness)
 
-  tracks_features <- new_data %>%
+  tracks_features <- x %>%
     tidyr::pivot_longer(cols = c(danceability, energy, valence, acousticness),
                         names_to = "Features", values_to = "Value of Features")
 
